@@ -32,11 +32,13 @@ IntegerVector R_CSF(DataFrame data, bool SloopSmooth, float ClothResolution)
 
   //step 2 ???ò???
   csf.params.bSloopSmooth = SloopSmooth;
-  //csf.params.class_threshold = ;
+  csf.params.class_threshold = 0.5;
   csf.params.cloth_resolution = ClothResolution;
-  //csf.params.interations = ;
-  //csf.params.rigidness = ;
-  //csf.params.time_step = ;
+  csf.params.interations = 500;
+  csf.params.rigidness = 1;
+  csf.params.time_step = 0.65;
+
+  Rcout << "rigidness: " << csf.params.rigidness << std::endl;
 
   std:vector<csf::Point> points(X.size());
   for (int i = 0 ; i < X.size() ; i++)
@@ -55,5 +57,5 @@ IntegerVector R_CSF(DataFrame data, bool SloopSmooth, float ClothResolution)
   csf.do_filtering(ground, nonground);
 
   IntegerVector Rground(wrap(ground));
-  return Rground;
+  return Rground + 1;
 }
