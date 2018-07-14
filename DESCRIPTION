@@ -6,6 +6,7 @@ Authors@R: c(
     person("Jean-Romain", "Roussel", email = "jean-romain.roussel.1@ulaval.ca", role = c("aut", "cre", "cph")),
     person("Jianbo", "Qi", email = "", role = c("aut", "cph")))
 Description: Airborne LiDAR filtering method based on Cloth Simulation.
+Depends: R (>= 2.10)
 License: Apache License 2.0
 Encoding: UTF-8
 LazyData: true
