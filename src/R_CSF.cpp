@@ -38,15 +38,13 @@ IntegerVector R_CSF(DataFrame data, bool SloopSmooth, float ClothResolution)
   csf.params.rigidness = 1;
   csf.params.time_step = 0.65;
 
-  Rcout << "rigidness: " << csf.params.rigidness << std::endl;
-
   std:vector<csf::Point> points(X.size());
   for (int i = 0 ; i < X.size() ; i++)
   {
     csf::Point p;
-    p.u[0] = (float) X[i];
-    p.u[1] = (float) Y[i];
-    p.u[2] = (float) Z[i];
+    p.u[0] = X[i];
+    p.u[1] = Y[i];
+    p.u[2] = Z[i];
 
     points[i] = p;
   }
