@@ -11,7 +11,6 @@ To install the package from github make sure you have a working development envi
 * **Windows**: Install [Rtools.exe](https://cran.r-project.org/bin/windows/Rtools/).  
 * **Mac**: Install `Xcode` from the Mac App Store.
 * **Linux**: Install the R development package, usually called `r-devel` or `r-base-dev`
-* The latest stable development version from github with
 
 ## Example
 
