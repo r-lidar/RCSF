@@ -8,7 +8,7 @@
 #' @param class_threshold scalar.
 #' @param cloth_resolution scalar.
 #' @param rigidness integer.
-#' @param interation integer.
+#' @param interations integer.
 #' @param time_step scalar.
 #'
 #' @return A vector containing the ids of the points that belong on the ground.

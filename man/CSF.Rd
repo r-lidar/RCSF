@@ -19,9 +19,9 @@ CSF(cloud, sloop_smooth = FALSE, class_threshold = 0.5,
 
 \item{rigidness}{integer.}
 
-\item{time_step}{scalar.}
+\item{interations}{integer.}
 
-\item{interation}{integer.}
+\item{time_step}{scalar.}
 }
 \value{
 A vector containing the ids of the points that belong on the ground.
