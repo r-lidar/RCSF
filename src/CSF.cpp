@@ -1,5 +1,5 @@
 // ======================================================================================
-// Copyright 2017 State Key Laboratory of Remote Sensing Science, 
+// Copyright 2017 State Key Laboratory of Remote Sensing Science,
 // Institute of Remote Sensing Science and Engineering, Beijing Normal University
 
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,6 +24,7 @@
 #include "Rasterization.h"
 #include "c2cdist.h"
 #include <fstream>
+#include "Progress.h"
 
 
 CSF::CSF(int index) {
@@ -106,7 +107,7 @@ void CSF::do_filtering(std::vector<int>& groundIndexes,
                        std::vector<int>& offGroundIndexes,
                        bool              exportCloth) {
     // Terrain
-    cout << "[" << this->index << "] Configuring terrain..." << endl;
+    // cout << "[" << this->index << "] Configuring terrain..." << endl;
     csf::Point bbMin, bbMax;
     point_cloud.computeBoundingBox(bbMin, bbMax);
 
@@ -127,9 +128,8 @@ void CSF::do_filtering(std::vector<int>& groundIndexes,
         floor((bbMax.z - bbMin.z) / params.cloth_resolution)
     ) + 2 * clothbuffer_d;
 
-    cout << "[" << this->index << "] Configuring cloth..." << endl;
-    cout << "[" << this->index << "]  - width: " << width_num << " "
-         << "height: " << height_num << endl;
+   // cout << "[" << this->index << "] Configuring cloth..." << endl;
+   // cout << "[" << this->index << "]  - width: " << width_num << " " << "height: " << height_num << endl;
 
     Cloth cloth(
         origin_pos,
@@ -143,16 +143,17 @@ void CSF::do_filtering(std::vector<int>& groundIndexes,
         params.time_step
     );
 
-    cout << "[" << this->index << "] Rasterizing..." << endl;
+    // cout << "[" << this->index << "] Rasterizing..." << endl;
     Rasterization::RasterTerrian(cloth, point_cloud, cloth.getHeightvals());
 
     double time_step2 = params.time_step * params.time_step;
     double gravity    = 0.2;
 
-    cout << "[" << this->index << "] Simulating..." << endl;
+    // cout << "[" << this->index << "] Simulating..." << endl;
     cloth.addForce(Vec3(0, -gravity, 0) * time_step2);
 
     // boost::progress_display pd(params.interations);
+    Progress p(params.interations, false);
     for (int i = 0; i < params.interations; i++) {
         double maxDiff = cloth.timeStep();
         cloth.terrCollision();
@@ -161,11 +162,17 @@ void CSF::do_filtering(std::vector<int>& groundIndexes,
             // early stop
             break;
         }
-        // pd++;
+
+        if (p.check_abort())
+        {
+          p.exit();
+        }
+
+        //p.update(i);
     }
 
     if (params.bSloopSmooth) {
-        cout << "[" << this->index << "]  - post handle..." << endl;
+        // cout << "[" << this->index << "]  - post handle..." << endl;
         cloth.movableFilter();
     }
 
