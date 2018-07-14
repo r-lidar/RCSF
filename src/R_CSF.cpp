@@ -22,21 +22,19 @@ using namespace std;
 using namespace Rcpp;
 
 // [[Rcpp::export]]
-IntegerVector R_CSF(DataFrame data, bool SloopSmooth, float ClothResolution)
+IntegerVector R_CSF(DataFrame data, bool sloop_smooth, double class_threshold, double cloth_resolution, int rigidness, int interations, double time_step)
 {
   NumericVector X = data["X"];
   NumericVector Y = data["Y"];
   NumericVector Z = data["Z"];
 
   CSF csf;
-
-  //step 2 ???ò???
-  csf.params.bSloopSmooth = SloopSmooth;
-  csf.params.class_threshold = 0.5;
-  csf.params.cloth_resolution = ClothResolution;
-  csf.params.interations = 500;
-  csf.params.rigidness = 1;
-  csf.params.time_step = 0.65;
+  csf.params.bSloopSmooth = sloop_smooth;
+  csf.params.class_threshold = class_threshold;
+  csf.params.cloth_resolution = cloth_resolution;
+  csf.params.interations = interations;
+  csf.params.rigidness = rigidness;
+  csf.params.time_step = time_step;
 
   std:vector<csf::Point> points(X.size());
   for (int i = 0 ; i < X.size() ; i++)
@@ -45,7 +43,6 @@ IntegerVector R_CSF(DataFrame data, bool SloopSmooth, float ClothResolution)
     p.u[0] = X[i];
     p.u[1] = Y[i];
     p.u[2] = Z[i];
-
     points[i] = p;
   }
 
