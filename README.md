@@ -1,8 +1,19 @@
-This is an R package that wrap the [CSF algorithm](https://github.com/jianboqi/CSF) for Airborne LiDAR ground filtering based on Cloth Simulation (see references)
+R package that wrap the [CSF algorithm](https://github.com/jianboqi/CSF) for Airborne LiDAR ground filtering based on Cloth Simulation.
 
-**The package is currently in developpment and does not work yet**
+## Install package
 
-## Test example
+```r
+devtools::install_github("Jean-Romain/RCSF")
+```
+
+To install the package from github make sure you have a working development environment.
+
+* **Windows**: Install [Rtools.exe](https://cran.r-project.org/bin/windows/Rtools/).  
+* **Mac**: Install `Xcode` from the Mac App Store.
+* **Linux**: Install the R development package, usually called `r-devel` or `r-base-dev`
+* The latest stable development version from github with
+
+## Example
 
 ```r
 library(lidR)
@@ -11,7 +22,14 @@ library(RCSF)
 LASfile <- system.file("extdata", "Topography.laz", package="lidR")
 las = readLAS(LASfile, select = "xyz")
 
+plot(las)
+
 gnd = CSF(las@data)
+
+las@data[, Classification := 0L]
+las@data[gnd, Classification := 2L]
+
+plot(las, color = "Classification")
 ```
 
 ## Reference
