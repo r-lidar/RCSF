@@ -54,5 +54,5 @@ CSF <- function(cloud, sloop_smooth = FALSE, class_threshold = 0.5, cloth_resolu
 
     stopifnot(is.data.frame(cloud))
     stopifnot(all(c("X", "Y", "Z") %in% names(cloud)))
-    R_CSF(cloud, sloop_smooth, class_threshold, cloth_resolution, rigidness, interations, time_step)
+    R_CSF(cloud, sloop_smooth, class_threshold, cloth_resolution, rigidness, iterations, time_step)
 }
