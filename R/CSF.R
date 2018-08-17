@@ -1,10 +1,11 @@
 #' Airborne LiDAR filtering method based on Cloth Simulation
 #'
-#' Airborne LiDAR filtering method based on Cloth Simulation (Zhang et al. 2016, see references). This
-#' function is an R wrapper around the library written by the orignal authors of the algorithm.  The ALS
-#' point cloud is inverted, and then a rigid cloth is used to cover the inverted surface. By analyzing
-#' the interactions between the cloth nodes and the corresponding LiDAR points, the locations of the
-#' cloth nodes can be determined to generate an approximation of the ground surface.
+#' Airborne LiDAR filtering method of ground points based on Cloth Simulation (Zhang et al. 2016,
+#' see references). This function is an R wrapper around the library written by the orignal authors
+#' of the algorithm. The ALS point cloud is inverted, and then a rigid cloth is used to cover the
+#' inverted surface. By analyzing the interactions between the cloth nodes and the corresponding
+#' LiDAR points, the locations of the cloth nodes can be determined to generate an approximation of
+#' the ground surface.
 #'
 #' @param cloud data.frame with 3 columns named X Y, Z containing the coordinates of the point cloud.
 #' @param sloop_smooth logical. When sharp slopes exist, set this parameter to TRUE to perform a

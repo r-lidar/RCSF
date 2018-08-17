@@ -33,11 +33,12 @@ is 0.65. Usually, Do not change this value. It is suitable for most cases.}
 An integer vector containing the ids of the points that belong on the ground.
 }
 \description{
-Airborne LiDAR filtering method based on Cloth Simulation (Zhang et al. 2016, see references). This
-function is an R wrapper around the library written by the orignal authors of the algorithm.  The ALS
-point cloud is inverted, and then a rigid cloth is used to cover the inverted surface. By analyzing
-the interactions between the cloth nodes and the corresponding LiDAR points, the locations of the
-cloth nodes can be determined to generate an approximation of the ground surface.
+Airborne LiDAR filtering method of ground points based on Cloth Simulation (Zhang et al. 2016,
+see references). This function is an R wrapper around the library written by the orignal authors
+of the algorithm. The ALS point cloud is inverted, and then a rigid cloth is used to cover the
+inverted surface. By analyzing the interactions between the cloth nodes and the corresponding
+LiDAR points, the locations of the cloth nodes can be determined to generate an approximation of
+the ground surface.
 }
 \examples{
 data(rcsf_cloud)

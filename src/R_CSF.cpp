@@ -24,9 +24,14 @@ using namespace Rcpp;
 // [[Rcpp::export]]
 IntegerVector R_CSF(DataFrame data, bool sloop_smooth, double class_threshold, double cloth_resolution, int rigidness, int interations, double time_step)
 {
-  NumericVector X = data["X"];
-  NumericVector Y = data["Y"];
-  NumericVector Z = data["Z"];
+  CharacterVector names = data.attr("names");
+  std::string x = as<std::string>(names[0]);
+  std::string y = as<std::string>(names[1]);
+  std::string z = as<std::string>(names[2]);
+
+  NumericVector X = data[x];
+  NumericVector Y = data[y];
+  NumericVector Z = data[z];
 
   CSF csf;
   csf.params.bSloopSmooth = sloop_smooth;
