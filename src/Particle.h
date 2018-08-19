@@ -1,5 +1,5 @@
 // ======================================================================================
-// Copyright 2017 State Key Laboratory of Remote Sensing Science, 
+// Copyright 2017 State Key Laboratory of Remote Sensing Science,
 // Institute of Remote Sensing Science and Engineering, Beijing Normal University
 
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,10 +20,12 @@
 
 #include "Vec3.h"
 #include <vector>
+#include <limits>
+
 /* Some physics constants */
 #define DAMPING    0.01 // how much to damp the cloth simulation each frame
-#define MAX_INF    9999999999
-#define MIN_INF    -9999999999
+#define MAX_INF    std::numeric_limits<long>::max()
+#define MIN_INF    std::numeric_limits<long>::min()
 
 
 const double singleMove1[15] = { 0, 0.3, 0.51, 0.657, 0.7599, 0.83193, 0.88235, 0.91765, 0.94235, 0.95965, 0.97175, 0.98023, 0.98616, 0.99031, 0.99322 };
