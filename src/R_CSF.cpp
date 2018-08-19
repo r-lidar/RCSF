@@ -18,7 +18,7 @@
 
 #include "CSF.h"
 #include <Rcpp.h>
-using namespace std;
+
 using namespace Rcpp;
 
 // [[Rcpp::export]]
@@ -41,7 +41,7 @@ IntegerVector R_CSF(DataFrame data, bool sloop_smooth, double class_threshold, d
   csf.params.rigidness = rigidness;
   csf.params.time_step = time_step;
 
-  std:vector<csf::Point> points(X.size());
+  std::vector<csf::Point> points(X.size());
   for (int i = 0 ; i < X.size() ; i++)
   {
     csf::Point p;
