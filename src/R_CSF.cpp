@@ -45,9 +45,9 @@ IntegerVector R_CSF(DataFrame data, bool sloop_smooth, double class_threshold, d
   for (int i = 0 ; i < X.size() ; i++)
   {
     csf::Point p;
-    p.u[0] = X[i];
-    p.u[1] = Y[i];
-    p.u[2] = Z[i];
+    p.x = X[i];
+    p.y = Y[i];
+    p.z = Z[i];
     points[i] = p;
   }
 
