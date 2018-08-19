@@ -1,5 +1,5 @@
 // ======================================================================================
-// Copyright 2017 State Key Laboratory of Remote Sensing Science, 
+// Copyright 2017 State Key Laboratory of Remote Sensing Science,
 // Institute of Remote Sensing Science and Engineering, Beijing Normal University
 
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -39,10 +39,6 @@
 #ifndef _CLOTH_H_
 #define _CLOTH_H_
 
-
-#ifdef _WIN32
-# include <windows.h>
-#endif // ifdef _WIN32
 #include <math.h>
 #include <vector>
 #include <iostream>
