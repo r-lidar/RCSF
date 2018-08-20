@@ -12,7 +12,7 @@ Then, the ground points can be extracted from the LiDAR point cloud by comparing
 and the generated surface. Thus, the filtering algorithm could be called cloth simulation filtering, CSF.More details
 can be found in W. Zhang, J. Qi*, P. Wan, H. Wang, D. Xie, X. Wang, and G. Yan, “An Easy-to-Use Airborne LiDAR Data
 Filtering Method Based on Cloth Simulation,” Remote Sens., vol. 8, no. 6, p. 501, 2016. There are mainly 6 parameters, but
-only 3 of them are needed to modified in most of the cases: cloth_resolution ,  rigidness and bSloopSmooth. cloth_resolution
+only 3 of them are needed to be modified in most of the cases: cloth_resolution ,  rigidness and bSloopSmooth. cloth_resolution
 is the density of the cloth particles in the cloth. Usually, this can be set as the average point spacing in the point cloud. 
 rigidness usually takes three integer values: 1 is soft cloth for flat terrains, 2 is for rugged terrains and 3 is hard cloth
 for terrains with steep slopes. bSloopSmooth is a boolean value for post-processing the steep slopes.
