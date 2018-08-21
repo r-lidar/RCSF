@@ -130,7 +130,6 @@ void Rasterization::RasterTerrian(Cloth          & cloth,
     }
     heightVal.resize(cloth.getSize());
 
-    // #pragma omp parallel for
     for (int i = 0; i < cloth.getSize(); i++) {
         Particle *pcur          = cloth.getParticle1d(i);
         double    nearestHeight = pcur->nearestPointHeight;
