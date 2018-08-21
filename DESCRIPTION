@@ -9,6 +9,8 @@ Description: CSF is an airborne LiDAR (Light Detection and Ranging) ground point
     which is based on cloth simulation. It tries to simulate the interactions between the cloth nodes and 
     the corresponding LiDAR points, the locations of the cloth nodes can be determined to generate an 
     approximation of the ground surface.
+Depends: R (>= 3.1.0)
+License: Apache License 2.0
 Encoding: UTF-8
 LazyData: true
 LinkingTo: Rcpp

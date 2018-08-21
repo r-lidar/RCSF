@@ -96,19 +96,19 @@ Cloth::Cloth(const Vec3& _origin_pos,
 
 double Cloth::timeStep() {
     int particleCount = static_cast<int>(particles.size());
-    #pragma omp parallel for
+    
     for (int i = 0; i < particleCount; i++) {
         particles[i].timeStep();
     }
 
-    #pragma omp parallel for
+    
     for (int j = 0; j < particleCount; j++) {
         particles[j].satisfyConstraintSelf(constraint_iterations);
     }
 
     double maxDiff = 0;
 
-    #pragma omp parallel for
+    
     for (int i = 0; i < particleCount; i++) {
         if (particles[i].isMovable()) {
             double diff = fabs(particles[i].old_pos.f[1] - particles[i].pos.f[1]);
@@ -129,7 +129,7 @@ void Cloth::addForce(const Vec3 direction) {
 
 void Cloth::terrCollision() {
     int particleCount = static_cast<int>(particles.size());
-    #pragma omp parallel for
+    
     for (int i = 0; i < particleCount; i++) {
         Vec3 v = particles[i].getPos();
 
