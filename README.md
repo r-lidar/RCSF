@@ -12,21 +12,17 @@ To install the package from github make sure you have a working development envi
 * **Mac**: Install `Xcode` from the Mac App Store.
 * **Linux**: Install the R development package, usually called `r-devel` or `r-base-dev`
 
-## Example
+## Use the CSF algorithm with `lidR`
+
+The `lidR` package supporst the `CFS` algorithm since version 2.0.0
 
 ```r
 library(lidR)
-library(RCSF)
 
 LASfile <- system.file("extdata", "Topography.laz", package="lidR")
 las = readLAS(LASfile, select = "xyz")
 
-plot(las)
-
-gnd = CSF(las@data)
-
-las@data[, Classification := 0L]
-las@data[gnd, Classification := 2L]
+lasground(las, csf())
 
 plot(las, color = "Classification")
 ```
