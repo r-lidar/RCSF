@@ -11,7 +11,7 @@ Description: Cloth Simulation Filter (CSF) is an airborne LiDAR (Light Detection
     between the cloth nodes and the corresponding LiDAR points, the locations of the cloth nodes can be
     determined to generate an approximation of the ground surface.
 Depends: R (>= 3.1.0)
-Suggest: lidR
+Suggests: lidR
 License: Apache License 2.0
 Encoding: UTF-8
 LazyData: true
