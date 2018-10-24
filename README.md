@@ -6,6 +6,7 @@ It is made to work along with the [lidR](https://github.com/Jean-Romain/lidR) pa
 The lidR package in versions <= 1.6.1 does not implements the CSF algorithm yet. Users must write their
 own code:
 
+
 ```r
 library(lidR)
 library(RCSF)
