@@ -2,7 +2,7 @@ Package: RCSF
 Type: Package
 Title: Airborne LiDAR Filtering Method Based on Cloth Simulation
 Version: 1.0.0
-Date: 2018-08-24
+Date: 2018-10-24
 Authors@R: c(
     person("Jean-Romain", "Roussel", email = "jean-romain.roussel.1@ulaval.ca", role = c("aut", "cre", "cph")),
     person("Jianbo", "Qi", email = "jianboqi@gmail.com", role = c("aut", "cph")))
@@ -11,11 +11,10 @@ Description: Cloth Simulation Filter (CSF) is an airborne LiDAR (Light Detection
     between the cloth nodes and the corresponding LiDAR points, the locations of the cloth nodes can be
     determined to generate an approximation of the ground surface.
 Depends: R (>= 3.1.0)
-Suggests: lidR
+Suggests: testthat
 License: Apache License 2.0
 Encoding: UTF-8
 LazyData: true
 LinkingTo: Rcpp
 Imports: Rcpp
 RoxygenNote: 6.1.0
-Suggests: testthat

@@ -42,7 +42,7 @@
 #include <math.h>
 #include <vector>
 #include <iostream>
-#include <omp.h>
+//#include <omp.h>
 #include <iostream>
 #include <sstream>
 #include <list>
