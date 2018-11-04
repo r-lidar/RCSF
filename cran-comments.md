@@ -1,3 +1,5 @@
+Second submission with copyrith holders update.
+
 ## Test environments
 * Linux Mint 18, R 3.4.4, gcc, clang (local)
 * Windows Server 2008 R2 SP1, R-devel, 32/64 bit (rhub)
