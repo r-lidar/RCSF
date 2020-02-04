@@ -4,9 +4,15 @@
 \alias{CSF}
 \title{Airborne LiDAR filtering method based on Cloth Simulation}
 \usage{
-CSF(cloud, sloop_smooth = FALSE, class_threshold = 0.5,
-  cloth_resolution = 0.5, rigidness = 1L, iterations = 500L,
-  time_step = 0.65)
+CSF(
+  cloud,
+  sloop_smooth = FALSE,
+  class_threshold = 0.5,
+  cloth_resolution = 0.5,
+  rigidness = 1L,
+  iterations = 500L,
+  time_step = 0.65
+)
 }
 \arguments{
 \item{cloud}{data.frame with 3 columns named X Y, Z containing the coordinates of the point cloud.}
