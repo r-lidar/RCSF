@@ -4,6 +4,5 @@ data(rcsf_cloud)
 id_ground = CSF(rcsf_cloud)
 
 test_that("csf algorithm works", {
-  expected = if (R.Version()$arch == "x86_64") 15459L else 15453L
-  expect_equal(length(id_ground), expected)
+  expect_true(length(id_ground) %in% c(15459L, 15453L))
 })
