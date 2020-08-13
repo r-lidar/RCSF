@@ -8,7 +8,7 @@ library(lidR)
 
 file <- system.file("extdata", "Topography.laz", package="lidR")
 las  <- readLAS(file, select = "xyz")
-las  <- lasground(las, csf())
+las  <- classify_ground(las, csf())
 
 plot(las, color = "Classification")
 ```
